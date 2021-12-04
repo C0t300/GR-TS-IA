@@ -2,7 +2,8 @@
 #include <fstream>
 #include <string>
 #include <list> 
-#include <string.h>
+#include <limits>
+#include <vector>
 using namespace std;
 
 void printLargeList(list<list<list<double>>> l){
@@ -13,6 +14,23 @@ void printLargeList(list<list<list<double>>> l){
             }
         }
     }
+}
+
+// avgCost / deltaPosibilities
+// mejorqueseamenos / mejorqueseamas
+// minimizar
+
+list<list<double>> minCostPosibilities(list<list<list<double>>> airplanes){
+    double min = std::numeric_limits<double>::infinity(); 
+    for (auto airplane : airplanes){
+        list<double> data = airplane.front(); // Ei, Ti, Li, gi, hi
+
+    }
+}
+
+double greedyTS(list<list<list<double>>> airplanes){
+    
+    return 1;
 }
 
 list<string> split(string s, string delim){
@@ -80,9 +98,19 @@ list<list<list<double>>> openInstance(string nameFile){
 }
 
 
-// main() is where program execution begins.
 int main() {
 
+    /*
+    La lista es basicamente una lista gigante de listas de datos de cada avion
+    La sublista de datos del avion se separa en dos:
+        La primera tiene Ei, Ti, Li, gi, hi. Es decir:
+            early arrival
+            ideal arrival
+            late arrival
+            penalización por aterrizar antes de Ti
+            same pero despues de Ti
+        La segunda tiene Sij, donde Sij es el tiempo de separacion entre el avion i y el j
+    */
     list<list<list<double>>> instance = openInstance("instancias/airland1.txt"); //[[[1,2],[3,4]], [[5,6],[7,8]]]
     // printLargeList(instance);
     return 0;
